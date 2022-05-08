@@ -1,12 +1,14 @@
 import { Card } from "react-bootstrap";
+import AuthorIntro from "./AuthorIntro";
 
-const CardItem = ({title, subtitle, date, coverImage}) => {
+const CardItem = ({author, title, subtitle, date, coverImage}) => {
+  debugger
   return (
     <Card className={`fj-card`}>
       <div className="card-body-wrapper">
         <Card.Header className="d-flex flex-row">
           <img
-            src={"https://via.placeholder.com/150"}
+            src={author?.avatar || "https://via.placeholder.com/150"}
             className="rounded-circle mr-3"
             height="50px"
             width="50px"
@@ -14,7 +16,7 @@ const CardItem = ({title, subtitle, date, coverImage}) => {
           />
           <div>
             <Card.Title className="font-weight-bold mb-1">
-              Placeholder Author
+              {author?.name}
             </Card.Title>
             <Card.Text className="card-date">{date}</Card.Text>
           </div>
